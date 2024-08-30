@@ -19,7 +19,7 @@ BASE_DIR="${ROOT}/WangLab"
 PROJECT_DIR="${BASE_DIR}/OA"
 DATA_DIR="${SCRATCH}/WangLab/OA/data"
 CACHE_DIR="${SCRATCH}/.cache"
-CHECKPOINT_DIR="${PROJECT_DIR}/checkpoints"
+CHECKPOINT_DIR="${SCRATCH}/WangLab/checkpoints"
 LOG_DIR="${PROJECT_DIR}/logs"
 
 # Activate virtual environment
@@ -41,9 +41,9 @@ stdbuf -oL -eL srun python3 task2.py \
     --cache_dir "${CACHE_DIR}" \
     --checkpoint_dir "${CHECKPOINT_DIR}" \
     --log_dir "${LOG_DIR}" \
-    --batch_size 6 \
+    --batch_size 1 \
     --max_epochs 5 \
-    --learning_rate 1e-4 \
+    --learning_rate 5e-5 \
     --num_gpus 1 \
     --num_workers 4 \
-    --gradient_accumulation_steps 1
+    --gradient_accumulation_steps 8
