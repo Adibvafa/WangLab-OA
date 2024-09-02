@@ -18,8 +18,8 @@ BASE_DIR="${ROOT}/WangLab"
 # Project-specific directories
 PROJECT_DIR="${BASE_DIR}/OA"
 DATA_DIR="${SCRATCH}/WangLab/OA/data"
-CACHE_DIR="${SCRATCH}/.cache"
-CHECKPOINT_DIR="${SCRATCH}/WangLab/checkpoints"
+WEIGHTS_DIR="/model-weights"
+CHECKPOINT_DIR="${SCRATCH}/WangLab/new_checkpoints"
 LOG_DIR="${PROJECT_DIR}/logs"
 
 # Activate virtual environment
@@ -35,14 +35,16 @@ export PYTHONFAULTHANDLER=1
 export PYTHONUNBUFFERED=1
 
 # Run the Python script with unbuffered output
-stdbuf -oL -eL srun python3 task2.py \
+stdbuf -oL -eL srun python3 finetune.py \
     --images_dir "${DATA_DIR}/images" \
     --annotation_file "${DATA_DIR}/annotation_quiz_all_with_val.json" \
-    --cache_dir "${CACHE_DIR}" \
+    --weights_dir "${WEIGHTS_DIR}" \
+    --processor_dir "llava-hf/llava-v1.6-mistral-7b-hf" \
     --checkpoint_dir "${CHECKPOINT_DIR}" \
+    --resume_checkpoint "${CHECKPOINT_DIR}/llava-epoch=00-val_loss_epoch=0.44.ckpt" \
     --log_dir "${LOG_DIR}" \
     --batch_size 1 \
-    --max_epochs 5 \
+    --max_epochs 4 \
     --learning_rate 5e-5 \
     --num_gpus 1 \
     --num_workers 4 \
