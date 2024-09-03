@@ -1,5 +1,5 @@
 # Finetuning LlaVA-Next on IU X-Ray Dataset
-The objectives of this repository are described in `XRay-ReportGeneration.pdf`.
+The objectives of this repository are described in `XRay-ReportGeneration.pdf`. <br>
 An overal technical report is provided in `Technical Report.pdf`.
 
 ![image](https://github.com/user-attachments/assets/58dc03ff-1f63-4a8a-9866-d534e1ff130c)
