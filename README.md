@@ -93,4 +93,4 @@ Model performance is as follows:
 <br>
 
 ## Acknowledgement
-We thank the WangLab for this interesting interesting project.
+We thank the WangLab for this interesting project.
