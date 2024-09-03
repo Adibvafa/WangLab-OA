@@ -27,7 +27,7 @@ pip install -r requirements.txt
 ## Task 1
 
 This task uses OpenAI API with structured outputs to break down a radiology report to findings of lung, heart, mediastinal, bone, and others.
-The code used is available at `task1.ipynb`. The resulting break downs for validation data are available at `annotations.json`.
+The code used is available at `task1.ipynb`. The resulting break downs for validation data are available at `results/annotations.json`.
 <br><br>
 
 
@@ -61,7 +61,7 @@ python finetune.py \
 
 ### Inference and Evaluation
 
-The `inference.py` script runs batch inference on validation and test datasets, saving generated reports in the `annotations.json` file.
+The `inference.py` script runs batch inference on validation and test datasets, saving generated reports in the `results/annotations.json` file.
 It evaluates generated reports using the GREEN score.
 
 ```python
