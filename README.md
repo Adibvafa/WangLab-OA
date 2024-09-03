@@ -1,19 +1,14 @@
->A template README.md for code accompanying a machine learning-based MICCAI paper, which is built on [paperswithcode/releasing-research-code](https://github.com/paperswithcode/releasing-research-code).
->
->Dataset, preprocessing, posting processing sections are added because these parts are very important to reproduce the results in medical image analysis community.
+# Finetuning LlaVA-Next on IU X-Ray Dataset
+The objectives of this repository are described in `XRay-ReportGeneration.pdf`. 
 
-# My Paper Title
-
-This repository is the official implementation of [My Paper Title](TBA). 
-
->Optional: include a graphic explaining your approach/main result, bibtex entry, link to demos, blog posts and tutorials
+![image](https://github.com/user-attachments/assets/58dc03ff-1f63-4a8a-9866-d534e1ff130c)
+<br><br>
 
 ## Environments and Requirements
-
-- Windows/Ubuntu version
-- CPU, RAM, GPU information
-- CUDA version
-- python version
+- OS: Linux, Ubuntu, 18.04.6 LTS
+- GPU: NVIDIA A100-80GB
+- CUDA: 12
+- Python: 3.11
 
 To install requirements:
 
@@ -21,90 +16,80 @@ To install requirements:
 pip install -r requirements.txt
 ```
 
->Describe how to set up the environment, e.g. pip/conda/docker commands, download datasets, etc...
-
-
-
 ## Dataset
 
-- A link to download the data (if publicly available)
-- A description about how to prepare the data (e.g., folder structures)
+- Dataset is available here https://paperswithcode.com/dataset/iu-x-ray
+- The annotations are provided in the repo.
+<br><br>
 
-## Preprocessing
 
-A brief description of preprocessing method
+## Task 1
 
-- cropping
-- intensity normalization
-- resampling
+This task uses OpenAI API with structured outputs to break down a radiology report to findings of lung, heart, mediastinal, bone, and others.
+The code used is available at `task1.ipynb`. The resulting break downs for validation data are available at `annotations.json`.
+<br><br>
 
-Running the data preprocessing code:
+
+## Task 2
+
+This task uses the `finetune.py` script to fientune the Llava-Next model on the IU X-Ray dataset.
+Then, `inference.py` is used to generated radiology reports on validation and test datasets, along with evaluating model performance using GREEN metric.
+<br><br>
+
+
+### Finetuning Llava-Next
+
+The `finetune.py` script uses QLoRA and PyTorch Lightning to finetune the llava-v1.6-mistral-7b-hf model.
+Only the linear layers of the model are finetuned on the 2069 training examples provided in train dataset.
 
 ```python
-python preprocessing.py --input_path <path_to_input_data> --output_path <path_to_output_data>
+python finetune.py \
+    --images_dir images_dir \
+    --annotation_file annotation_file \
+    --weights_dir weights_dir \
+    --processor_dir "llava-hf/llava-v1.6-mistral-7b-hf" \
+    --checkpoint_dir checkpoint_dir \
+    --log_dir log_dir \
+    --batch_size 1 \
+    --max_epochs 4 \
+    --learning_rate 5e-5 \
+    --num_gpus 1 \
+    --num_workers 4 \
+    --gradient_accumulation_steps 8
 ```
 
-## Training
+### Inference and Evaluation
 
-To train the model(s) in the paper, run this command:
+The `inference.py` script runs batch inference on validation and test datasets, saving generated reports in the `annotations.json` file.
+It evaluates generated reports using the GREEN score.
 
-```train
-python train.py --input-data <path_to_data> --alpha 10 --beta 20
+```python
+python inference.py \
+    --checkpoint_path checkpoint_path \
+    --cache_dir cache_dir \
+    --weights_dir weights_dir \
+    --processor_dir "llava-hf/llava-v1.6-mistral-7b-hf" \
+    --images_dir images_dir \
+    --annotation_file annotation_file \
+    --output_dir output_dir \
+    --batch_size 12 \
+    --max_new_tokens 200
 ```
-
->Describe how to train the models, with example commands, including the full training procedure and appropriate hyper-parameters.
-
-
+<br>
 
 ## Trained Models
-
-You can download trained models here:
-
-- [My awesome model](https://drive.google.com/mymodel.pth) trained on the above dataset with the above code. 
-
->Give a link to where/how the trained models can be downloaded.
-
-
-
-## Inference
-
-To infer the testing cases, run this command:
-
-```python
-python inference.py --input-data <path_to_data> --model_path <path_to_trained_model> --output_path <path_to_output_data>
-```
-
-> Describe how to infer on testing cases with the trained models.
-
-
-
-## Evaluation
-
-To compute the evaluation metrics, run:
-
-```eval
-python eval.py --seg_data <path_to_inference_results> --gt_data <path_to_ground_truth>
-```
-
->Describe how to evaluate the inference results and obtain the reported results in the paper.
-
-
+You can download trained models here.
+<br><br>
 
 ## Results
 
-Our method achieves the following performance on [Brain Tumor Segmentation (BraTS) Challenge](https://www.med.upenn.edu/cbica/brats2020/)
+Model performance is as follows:
 
-| Model name       |  DICE  | 95% Hausdorff Distance |
-| ---------------- | :----: | :--------------------: |
-| My awesome model | 90.68% |         32.71          |
-
->Include a table of results from your paper, and link back to the leaderboard for clarity and context. If your main result is a figure, include that figure and link to the command or notebook to reproduce it. 
-
-
-## Contributing
-
->Pick a licence and describe how to contribute to your code repository. 
+| Data Split | Lung | Heart | Mediastinal | Bone |
+|------------|------|-------|-------------|------|
+| Validation | -    | -     | -           | -    |
+| Testing    | -    | -     | -           | -    |
+<br>
 
 ## Acknowledgement
-
-> We thank the contributors of public datasets. 
+We thank the WangLab for this interesting interesting project.
