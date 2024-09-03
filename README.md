@@ -88,8 +88,8 @@ Model performance is as follows:
 
 | Data Split | Lung | Heart | Mediastinal | Bone |
 |------------|------|-------|-------------|------|
-| Test | 0.70    | 0.87     | 0.52           | 0.17    |
-| Valid    |  0.69   | 0.66     | 0.37           | 0.18    |
+| Test | 0.70    | 0.89     | 0.66           | 0.32    |
+| Valid    |  0.69   | 0.72     | 0.50           | 0.31    |
 <br>
 
 ## Acknowledgement
