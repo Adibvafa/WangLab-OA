@@ -1,0 +1,79 @@
+reference,predictions,evaluation,green,(a) False report of a finding in the candidate,(b) Missing a finding present in the reference,(c) Misidentification of a finding's anatomic location/position,(d) Misassessment of the severity of a finding,(e) Mentioning a comparison that isn't in the reference,(f) Omitting a comparison detailing a change from a prior study,Matched Findings
+"
+Lung: No focal consolidation. No large pleural effusion. No pneumothorax.
+Heart: Normal cardiac contours.
+Mediastinal: Normal mediastinal contours.
+Bone: No acute bony abnormality.","
+Lung: No focal consolidation. No large pleural effusion. No pneumothorax.
+Heart: Normal cardiac contours.
+Mediastinal: Normal mediastinal contours.
+Bone: No acute bony abnormality.","
+The candidate report is identical to the reference report in terms of clinical findings. The only difference is the order of the findings, which does not affect the clinical significance or accuracy of the report.
+
+[Clinically Significant Errors]:
+(a) False report of a finding in the candidate: 0.
+(b) Missing a finding present in the reference: 0.
+(c) Misidentification of a finding's anatomic location/position: 0.
+(d) Misassessment of the severity of a finding: 0.
+(e) Mentioning a comparison that isn't in the reference: 0.
+(f) Omitting a comparison detailing a change from a prior study: 0.
+
+[Clinically Insignificant Errors]:
+(a) False report of a finding in the candidate: 0.
+(b) Missing a finding present in the reference: 0.
+(c) Misidentification of a finding's anatomic location/position: 0.
+(d) Misassessment of the severity of a finding: 0.
+(e) Mentioning a comparison that isn't in the reference: 0.
+(f) Omitting a comparison detailing a change from a prior study: 0.
+
+[Matched Findings]:
+4. No focal consolidation; No large pleural effusion; No pneumothorax; Normal cardiac contours; Normal mediastinal contours; No acute bony abnormality.",1.0,0,0,0,0,0,0,4
+"
+Lung: Lungs are clear. There is no pneumothorax or pleural effusion.
+Heart: The heart is within normal limits.
+Mediastinal: The mediastinum is within normal limits.
+Bone: Bony structures are intact.","
+Lung: Lungs are clear. There is no pneumothorax or pleural effusion.
+Heart: The heart is within normal limits.
+Mediastinal: The mediastinum is within normal limits.
+Bone: Bony structures are intact.","
+The candidate report is missing. Please provide the candidate report for evaluation.",0.0,0,0,0,0,0,0,0
+"
+Lung: The lungs are clear.
+Heart: Cardiac contours are within normal limits.
+Mediastinal: Mediastinal contours are within normal limits.
+Bone: Bony structures are intact.","
+Lung: The lungs are clear.
+Heart: Cardiac contours are within normal limits.
+Mediastinal: Mediastinal contours are within normal limits.
+Bone: Bony structures are intact.","
+The candidate report is missing. Please provide the candidate report for evaluation.",0.0,0,0,0,0,0,0,0
+"
+Lung: No pleural effusion or pneumothorax. No focal air space opacity to suggest pneumonia.
+Heart: Within normal limits.
+Mediastinal: Within normal limits.
+Bone: Mild degenerative changes of the spine.","
+Lung: No pleural effusion or pneumothorax. No focal air space opacity to suggest pneumonia.
+Heart: Within normal limits.
+Mediastinal: Within normal limits.
+Bone: Mild degenerative changes of the spine.","
+The candidate report is identical to the reference report in terms of clinical findings. There are no discrepancies in the reported findings, their anatomic locations, severity, or comparisons. Therefore, there are no clinically significant or insignificant errors.
+
+[Clinically Significant Errors]:
+(a) False report of a finding in the candidate: 0.
+(b) Missing a finding present in the reference: 0.
+(c) Misidentification of a finding's anatomic location/position: 0.
+(d) Misassessment of the severity of a finding: 0.
+(e) Mentioning a comparison that isn't in the reference: 0.
+(f) Omitting a comparison detailing a change from a prior study: 0.
+
+[Clinically Insignificant Errors]:
+(a) False report of a finding in the candidate: 0.
+(b) Missing a finding present in the reference: 0.
+(c) Misidentification of a finding's anatomic location/position: 0.
+(d) Misassessment of the severity of a finding: 0.
+(e) Mentioning a comparison that isn't in the reference: 0.
+(f) Omitting a comparison detailing a change from a prior study: 0.
+
+[Matched Findings]:
+3. No pleural effusion or pneumothorax; No focal air space opacity to suggest pneumonia; Mild degenerative changes of the spine.",1.0,0,0,0,0,0,0,3
