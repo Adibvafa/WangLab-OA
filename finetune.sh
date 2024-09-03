@@ -41,7 +41,6 @@ stdbuf -oL -eL srun python3 finetune.py \
     --weights_dir "${WEIGHTS_DIR}" \
     --processor_dir "llava-hf/llava-v1.6-mistral-7b-hf" \
     --checkpoint_dir "${CHECKPOINT_DIR}" \
-    --resume_checkpoint "${CHECKPOINT_DIR}/llava-epoch=00-val_loss_epoch=0.44.ckpt" \
     --log_dir "${LOG_DIR}" \
     --batch_size 1 \
     --max_epochs 4 \

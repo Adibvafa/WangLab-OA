@@ -19,7 +19,7 @@ BASE_DIR="${ROOT}/WangLab"
 PROJECT_DIR="${BASE_DIR}/OA"
 DATA_DIR="${SCRATCH}/WangLab/OA/data"
 WEIGHTS_DIR="/model-weights"
-CHECKPOINT_DIR="${SCRATCH}/WangLab/checkpoints"
+CHECKPOINT_DIR="${SCRATCH}/WangLab/new_checkpoints"
 OUTPUT_DIR="${PROJECT_DIR}/inference"
 CACHE_DIR="${SCRATCH}/.cache"
 
@@ -37,7 +37,7 @@ export PYTHONUNbBUFFERED=1
 
 # Run the Python script with unbuffered output
 stdbuf -oL -eL srun python3 inference.py \
-    --checkpoint_path "${CHECKPOINT_DIR}/llava-epoch=02-val_loss_epoch=0.43.ckpt/pytorch_model.bin" \
+    --checkpoint_path "${CHECKPOINT_DIR}/llava-epoch=03-val_loss_epoch=0.48.ckpt/pytorch_model.bin" \
     --cache_dir "${CACHE_DIR}" \
     --weights_dir "${WEIGHTS_DIR}" \
     --processor_dir "llava-hf/llava-v1.6-mistral-7b-hf" \
@@ -45,4 +45,4 @@ stdbuf -oL -eL srun python3 inference.py \
     --annotation_file "${DATA_DIR}/annotation_quiz_all_with_val.json" \
     --output_dir "${OUTPUT_DIR}" \
     --batch_size 12 \
-    --max_new_tokens 200
+    --max_new_tokens 250
