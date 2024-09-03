@@ -79,10 +79,6 @@ python inference.py \
 ```
 <br>
 
-## Trained Models
-Trained model will be provided upon approval!
-<br><br>
-
 ## Results
 
 Model performance is as follows:
