@@ -20,7 +20,7 @@ pip install -r requirements.txt
 ## Dataset
 
 - Dataset is available here https://paperswithcode.com/dataset/iu-x-ray
-- The annotations are provided in the repo.
+- The annotations are provided in the repo under `results`.
 <br><br>
 
 
