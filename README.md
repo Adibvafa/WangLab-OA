@@ -79,7 +79,7 @@ python inference.py \
 <br>
 
 ## Trained Models
-You can download trained models here.
+Trained model will be provided upon approval!
 <br><br>
 
 ## Results
