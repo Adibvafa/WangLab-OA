@@ -268,14 +268,6 @@ def main(args: ArgumentParser):
             mode="min",
             verbose=True,
         ),
-        ModelCheckpoint(
-            dirpath=args.checkpoint_dir,
-            filename="llava-{epoch:02d}-{val_loss_epoch:.2f}",
-            save_top_k=1,
-            every_n_epochs=1,
-            save_last=True,
-            verbose=True,
-        ),
         LearningRateMonitor(logging_interval="step"),
     ]
     logger = WandbLogger(
