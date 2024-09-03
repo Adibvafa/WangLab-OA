@@ -1,0 +1,13 @@
+tqdm
+python-dotenv
+openai
+pydantic
+pandas
+torch
+transformers
+peft
+pytorch-lightning
+wandb
+deepspeed
+Pillow
+git+https://github.com/Stanford-AIMI/GREEN.git
