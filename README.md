@@ -1,5 +1,6 @@
 # Finetuning LlaVA-Next on IU X-Ray Dataset
-The objectives of this repository are described in `XRay-ReportGeneration.pdf`. 
+The objectives of this repository are described in `XRay-ReportGeneration.pdf`. <br>
+An overal technical report is provided in `Technical Report.pdf`.
 
 ![image](https://github.com/user-attachments/assets/58dc03ff-1f63-4a8a-9866-d534e1ff130c)
 <br><br>
@@ -20,14 +21,14 @@ pip install -r requirements.txt
 ## Dataset
 
 - Dataset is available here https://paperswithcode.com/dataset/iu-x-ray
-- The annotations are provided in the repo.
+- The annotations are provided in the repo under `results`.
 <br><br>
 
 
 ## Task 1
 
 This task uses OpenAI API with structured outputs to break down a radiology report to findings of lung, heart, mediastinal, bone, and others.
-The code used is available at `task1.ipynb`. The resulting break downs for validation data are available at `annotations.json`.
+The code used is available at `task1.ipynb`. The resulting break downs for validation data are available at `results/annotations.json`.
 <br><br>
 
 
@@ -61,7 +62,7 @@ python finetune.py \
 
 ### Inference and Evaluation
 
-The `inference.py` script runs batch inference on validation and test datasets, saving generated reports in the `annotations.json` file.
+The `inference.py` script runs batch inference on validation and test datasets, saving generated reports in the `results/annotations.json` file.
 It evaluates generated reports using the GREEN score.
 
 ```python
@@ -78,10 +79,6 @@ python inference.py \
 ```
 <br>
 
-## Trained Models
-You can download trained models here.
-<br><br>
-
 ## Results
 
 Model performance is as follows:
@@ -93,4 +90,4 @@ Model performance is as follows:
 <br>
 
 ## Acknowledgement
-We thank the WangLab for this interesting interesting project.
+We thank the WangLab for this interesting project.
